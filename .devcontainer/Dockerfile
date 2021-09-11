@@ -18,7 +18,9 @@ RUN if [ "$USER_GID" != "1000" ] || [ "$USER_UID" != "1000" ]; then groupmod --g
 # [Optional] Uncomment this section to install additional OS packages.
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive && \
     apt-get -y install --no-install-recommends vim git-core bash-completion && \
+    apt-get -y install --no-install-recommends chromium && \
     echo "Pacotes de SO instalados com sucesso!"
+ENV CHROME_BIN=/usr/bin/chromium
 
 # [Optional] Uncomment if you want to install an additional version of node using nvm
 # ARG EXTRA_NODE_VERSION=10
