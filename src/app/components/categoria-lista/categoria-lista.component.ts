@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Output,
+} from '@angular/core';
 import { Categoria } from 'src/app/models/categoria';
 import { Livro } from 'src/app/models/livro';
 
@@ -95,5 +99,12 @@ export class CategoriaListaComponent {
       ],
     )
   ]
+
+  @Output()
+  public livroSelecionado = new EventEmitter<Livro>();
+
+  public selecionarLivro(livro: Livro): void {
+    this.livroSelecionado.emit(livro);
+  }
 
 }

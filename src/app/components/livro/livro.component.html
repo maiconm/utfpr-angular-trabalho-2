@@ -1,1 +1,12 @@
-<p>livro works!</p>
+<div
+  class="card"
+  (click)="selecionarLivro(livro)"
+>
+  <img
+    [src]="livro.capa"
+    alt="teste"
+  >
+  <div class="container">
+    <h4>{{ livro.titulo }}</h4>
+  </div>
+</div>

@@ -1,15 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
+import { Livro } from 'src/app/models/livro';
 
 @Component({
   selector: 'app-livro',
   templateUrl: './livro.component.html',
   styleUrls: ['./livro.component.css']
 })
-export class LivroComponent implements OnInit {
+export class LivroComponent {
 
-  constructor() { }
+  @Input()
+  public livro!: Livro;
 
-  ngOnInit(): void {
+  @Output()
+  public livroSelecionado = new EventEmitter<Livro>();
+
+  public selecionarLivro(livro: Livro): void {
+    this.livroSelecionado.emit(livro);
   }
 
 }
