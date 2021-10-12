@@ -1,5 +1,9 @@
-<!-- <app-categoria-lista
+<app-categoria-lista
+  *ngIf="!livroDetalhes"
   (livroSelecionado)="selecionarLivro($event)"
-></app-categoria-lista> -->
+></app-categoria-lista>
 <app-livro-detalhes
+  *ngIf="livroDetalhes"
+  [livro]="livroDetalhes"
+  (fechar)="fecharDetalhes()"
 ></app-livro-detalhes>
