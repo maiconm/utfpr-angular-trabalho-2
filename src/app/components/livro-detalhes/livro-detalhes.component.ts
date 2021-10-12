@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { LivroDetalhes } from 'src/app/models/livro-detalhes';
 
 @Component({
@@ -8,13 +8,10 @@ import { LivroDetalhes } from 'src/app/models/livro-detalhes';
 })
 export class LivroDetalhesComponent {
 
-  public livroDetalhes = new LivroDetalhes(
-    'teste',
-    'teste',
-    'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTZLjA_xrj12shksuLChiHCAjrptTIcVV1liAdVD2c-yRsuSfux3hvrejETPqw8yTb8FbfXzaYSnViS&usqp=CAc',
-    'als;kfjdlaksdjf as;lkdfjalksdfj;alskdjf a;sldkfj;aslkdfjasdf ;lkjasdf;lkjasd;lfkj ;lkjsdaflk;j',
-    'asdfasdf',
-    'asdfasdf'
-  );
+  @Input()
+  public livro!: LivroDetalhes;
+
+  @Output()
+  public fechar = new EventEmitter<boolean>();
 
 }

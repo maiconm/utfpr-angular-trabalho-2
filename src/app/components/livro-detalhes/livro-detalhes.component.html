@@ -1,12 +1,16 @@
 <div class="container">
-  <img [src]="livroDetalhes.capa">
+  <img
+    [src]="livro.capa"
+    [alt]="livro.titulo"
+  >
   <div class="detalhes">
-    <h1>{{ livroDetalhes.titulo }}</h1>
-    <span>Por {{ livroDetalhes.autor }}</span>
+    <h1>{{ livro.titulo }}</h1>
+    <span>Por {{ livro.autor }}</span>
     <br>
     <b>Sinopse:</b>
-    <p>{{ livroDetalhes.sinopse }}</p>
+    <p>{{ livro.sinopse }}</p>
     <b>Editora:</b>
-    <p>{{ livroDetalhes.editora }}</p>
+    <p>{{ livro.editora }}</p>
+    <button (click)="fechar.emit()">Fechar</button>
   </div>
 </div>
