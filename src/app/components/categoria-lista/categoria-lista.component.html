@@ -1,1 +1,14 @@
-<p>categoria-lista works!</p>
+<div class="categoria-lista" *ngFor="let categoria of categorias">
+  <h1>{{ categoria.nome }}</h1>
+  <div class="row-list">
+    <div class="card" *ngFor="let livro of categoria.livros">
+      <img
+        [src]="livro.capa"
+        alt="teste"
+      >
+      <div class="container">
+        <h4>{{ livro.titulo }}</h4>
+      </div>
+    </div>
+  </div>
+</div>
