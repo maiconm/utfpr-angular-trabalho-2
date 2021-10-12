@@ -1,1 +1,12 @@
-<p>livro-detalhes works!</p>
+<div class="container">
+  <img [src]="livroDetalhes.capa">
+  <div class="detalhes">
+    <h1>{{ livroDetalhes.titulo }}</h1>
+    <span>Por {{ livroDetalhes.autor }}</span>
+    <br>
+    <b>Sinopse:</b>
+    <p>{{ livroDetalhes.sinopse }}</p>
+    <b>Editora:</b>
+    <p>{{ livroDetalhes.editora }}</p>
+  </div>
+</div>
