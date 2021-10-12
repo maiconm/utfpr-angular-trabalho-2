@@ -1,14 +1,14 @@
 <div
   class="categoria-lista"
-  *ngFor="let categoria of categorias"
+  *ngFor="let categoria of (categorias$ | async)"
 >
-  <h1>{{ categoria.nome }}</h1>
+  <h1>{{ categoria.nome | titlecase }}</h1>
   <div class="row-list">
-    <ng-container *ngFor="let livro of categoria.livros">
       <app-livro
+        *ngFor="let livro of categoria.livros"
         [livro]="livro"
         (livroSelecionado)="selecionarLivro($event)"
       ></app-livro>
-    </ng-container>
+    <h3 *ngIf="!categoria.livros.length">Sem livros para essa categoria</h3>
   </div>
 </div>
