@@ -12,13 +12,20 @@ import { Livro } from 'src/app/models/livro';
   styleUrls: ['./livro.component.css']
 })
 export class LivroComponent {
-
+  /**
+   * Livro as ser exibido.
+   */
   @Input()
   public livro!: Livro;
-
+  /**
+   * Livro selecionado.
+   */
   @Output()
   public livroSelecionado = new EventEmitter<Livro>();
-
+  /**
+   * Emite o livro selecionado.
+   * @param livro Livro selecionado.
+   */
   public selecionarLivro(livro: Livro): void {
     this.livroSelecionado.emit(livro);
   }

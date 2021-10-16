@@ -18,10 +18,19 @@ import { LivroDetalhes } from '../models/livro-detalhes';
 export class LivroService {
 
   constructor(
+    /**
+     * URL base.
+     */
     @Inject('BASE_URL') private baseUrl: string,
+    /**
+     * Faz requisições para a API.
+     */
     private httpClient: HttpClient,
   ) { }
-
+  /**
+   * Pega as categorias da API.
+   * @returns Lista de categorias.
+   */
   public getCategorias(): Observable<Categoria[]> {
     return this.httpClient.get<ICategoria[]>(`${this.baseUrl}/categorias`).pipe(
       map(
@@ -33,13 +42,21 @@ export class LivroService {
       ),
     );
   }
-
+  /**
+   * Pega os detalhes de um livro.
+   * @param id Identificador do livro.
+   * @returns Detalhes do livro.
+   */
   public getLivroDetalhes(id: string): Observable<LivroDetalhes> {
     return this.httpClient.get<ILivroDetalhes>(`${this.baseUrl}/livros/${id}`).pipe(
       map(this.iLivroDetalheToLivroDetalhe),
     );
   }
-
+  /**
+   * Transforma interface em model de LivroDetalhes
+   * @param iLivroDetalhes Interface de LivroDetalhes
+   * @returns LivroDetalhes
+   */
   private iLivroDetalheToLivroDetalhe(iLivroDetalhes: ILivroDetalhes): LivroDetalhes {
     return new LivroDetalhes(
       iLivroDetalhes._id,
@@ -50,7 +67,11 @@ export class LivroService {
       iLivroDetalhes.autor,
     );
   }
-
+  /**
+   * Transforma interface em model de Categoria
+   * @param ICategoria Interface de Categoria
+   * @returns { Categoria }
+   */
   private iCategoriaToCategoria({ _id, nome, livros }: ICategoria): Categoria {
     return new Categoria(
       _id,
@@ -58,7 +79,11 @@ export class LivroService {
       livros.map(livro => this.iLivroToLivro(livro))
     );
   }
-
+  /**
+   * Transforma interface em model de Livro
+   * @param ILivro Interface de Livro
+   * @returns { Livro }
+   */
   private iLivroToLivro({ _id, titulo, capa }: ILivro): Livro {
     return new Livro(
       _id,
