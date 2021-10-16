@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { LivroService } from 'src/app/services/livro.service';
 
 import { CategoriaListaComponent } from './categoria-lista.component';
 
@@ -8,7 +9,20 @@ describe('CategoriaListaComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CategoriaListaComponent ]
+      declarations: [
+        CategoriaListaComponent,
+      ],
+      providers: [
+        {
+          provide: LivroService,
+          useValue: jasmine.createSpyObj(
+            'LivroService',
+            [
+              'getCategorias',
+            ],
+          ),
+        },
+      ],
     })
     .compileComponents();
   });

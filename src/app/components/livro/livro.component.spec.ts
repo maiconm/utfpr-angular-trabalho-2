@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Livro } from 'src/app/models/livro';
 
 import { LivroComponent } from './livro.component';
 
@@ -8,7 +9,9 @@ describe('LivroComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LivroComponent ]
+      declarations: [
+        LivroComponent,
+      ],
     })
     .compileComponents();
   });
@@ -16,6 +19,11 @@ describe('LivroComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(LivroComponent);
     component = fixture.componentInstance;
+    component.livro = new Livro(
+      'fafafafa',
+      'livro mock',
+      'livro mock capa',
+    );
     fixture.detectChanges();
   });
 
