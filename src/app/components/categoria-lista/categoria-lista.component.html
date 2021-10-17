@@ -4,11 +4,11 @@
 >
   <h1>{{ categoria.nome | titlecase }}</h1>
   <div class="row-list">
-      <app-livro
-        *ngFor="let livro of categoria.livros"
-        [livro]="livro"
-        (livroSelecionado)="selecionarLivro($event)"
-      ></app-livro>
+    <app-livro
+      *ngFor="let livro of categoria.livros"
+      [livro]="livro"
+      (livroSelecionado)="selecionarLivro($event)"
+    ></app-livro>
     <h3 *ngIf="!categoria.livros.length">Sem livros para essa categoria</h3>
   </div>
 </div>

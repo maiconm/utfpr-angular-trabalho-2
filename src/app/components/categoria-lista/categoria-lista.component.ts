@@ -20,7 +20,7 @@ export class CategoriaListaComponent {
   @Output()
   public livroSelecionado = new EventEmitter<Livro>();
   /**
-   * Categorias
+   * Categorias.
    */
   public categorias$: Observable<Categoria[]>;
 
